@@ -1,0 +1,71 @@
+<!-- popup_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+
+
+    <Button
+        android:id="@+id/btnRegisterFace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本地人脸注册"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnShutdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="系统关机"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnVolumeControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="控制音量"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnBrightnessControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="控制屏幕亮度"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="#E0E0E0"
+        android:layout_marginTop="8dp"/>
+
+    <SeekBar
+        android:id="@+id/volumeSeekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:rotation="270"
+        android:thumb="@drawable/custom_thumb" />
+    <!-- 其他设置按钮 -->
+
+</LinearLayout>

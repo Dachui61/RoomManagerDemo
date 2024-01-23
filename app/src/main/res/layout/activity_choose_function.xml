@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/jiemian"
+    >
+
+    <RelativeLayout
+        android:id="@+id/meetingRoomHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25dp">
+
+        <!-- 左侧垂直布局，包含会议室名称 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <!-- 会议室名称 -->
+            <TextView
+                android:id="@+id/meetingRoomName"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="8号楼105会议室"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp" />
+
+        </LinearLayout>
+
+        <!-- 右侧垂直布局，包含年月日和星期几、时间 -->
+        <LinearLayout
+            android:layout_width="323dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/meetingRoomName"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:orientation="vertical">
+
+            <!-- 年月日和星期几 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/currentDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2024年01月03日"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/dayOfWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="星期一"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <!-- 时间 -->
+            <TextView
+                android:id="@+id/currentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前时间"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <!-- 中间部分 -->
+    <LinearLayout
+        android:id="@+id/middleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/meetingRoomHeader"
+        android:orientation="horizontal"
+        android:elevation="4dp">
+
+        <!-- 左边部分 -->
+
+        <!-- 右边部分 -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="869dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 会议室图片 -->
+            <FrameLayout
+                android:id="@+id/imageAndScanLayout"
+                android:layout_width="match_parent"
+                android:layout_height="541dp">
+                <!-- 新加入的 FrameLayout 用于显示会议进行中的信息 -->
+                <FrameLayout
+                    android:id="@+id/meetingStatusLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/meetingStatusTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会议进行中"
+                            android:textSize="50sp"
+                            android:textColor="#698B22"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:id="@+id/meetingStatusTextView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会议进行中"
+                            android:textSize="50sp"
+                            android:textColor="#698B22"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:id="@+id/meetingStatusTextView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会议进行中"
+                            android:textSize="50sp"
+                            android:textColor="#698B22"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- ImageView for meeting room image -->
+                <ImageView
+                    android:id="@+id/meetingRoomImage"
+                    android:layout_width="880dp"
+                    android:layout_height="568dp"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/my_huiyishi" />
+                <FrameLayout
+                    android:id="@+id/faceRecognitionContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <!-- This is where the Face Recognition fragment will be added dynamically -->
+
+                </FrameLayout>
+
+                <!-- 扫码区域 -->
+                <FrameLayout
+                    android:id="@+id/scanLayout"
+                    android:layout_width="909dp"
+                    android:layout_height="570dp"
+                    android:visibility="invisible">
+
+                    <!-- DecoratedBarcodeView for camera preview -->
+                    <com.journeyapps.barcodescanner.DecoratedBarcodeView
+                        android:id="@+id/barcodeScannerView"
+                        android:layout_width="913dp"
+                        android:layout_height="570dp" />
+
+                    <!-- Optional: Add UI elements on top of the camera preview (e.g., scan guides) -->
+
+                </FrameLayout>
+            </FrameLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="960dp"
+                android:layout_height="334dp">
+
+
+                <Button
+                    android:id="@+id/localReservationButton"
+                    android:layout_width="166dp"
+                    android:layout_height="66dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="140dp"
+                    android:layout_marginBottom="135dp"
+                    android:background="#228B22"
+                    android:text="快速预约"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:visibility="visible"/>
+
+                <Button
+                    android:id="@+id/faceRecognitionButton"
+                    android:layout_width="161dp"
+                    android:layout_height="70dp"
+                    android:layout_alignBottom="@id/localReservationButton"
+                    android:layout_marginRight="74dp"
+                    android:layout_marginBottom="-4dp"
+                    android:layout_toLeftOf="@id/localReservationButton"
+                    android:onClick="jumpToFaceRecognizeActivity"
+                    android:text="人脸识别"
+                    android:textColor="#FFFFFF"
+                    android:background="#228B22"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/scanButton"
+                    android:layout_width="161dp"
+                    android:layout_height="70dp"
+                    android:layout_alignBottom="@id/faceRecognitionButton"
+                    android:layout_marginRight="92dp"
+                    android:layout_marginBottom="-4dp"
+                    android:layout_toLeftOf="@id/faceRecognitionButton"
+                    android:text="扫码"
+                    android:textColor="#FFFFFF"
+                    android:background="#228B22"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/endButton"
+                    android:layout_width="165dp"
+                    android:layout_height="64dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="140dp"
+                    android:layout_marginBottom="136dp"
+                    android:background="#228B22"
+                    android:text="结束会议"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/extendButton"
+                    android:layout_width="161dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@id/scanButton"
+                    android:layout_alignRight="@id/scanButton"
+                    android:layout_marginTop="25dp"
+                    android:text="延时15分"
+                    android:textColor="#FFFFFF"
+                    android:background="#228B22"
+                    android:textSize="30dp"
+                    android:visibility="invisible"/>
+
+                <Button
+                    android:id="@+id/extendButton2"
+                    android:layout_width="161dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@id/faceRecognitionButton"
+                    android:layout_alignRight="@id/faceRecognitionButton"
+                    android:layout_marginTop="23dp"
+                    android:background="#228B22"
+                    android:text="延时30分"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/extendButton3"
+                    android:layout_width="161dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="140dp"
+                    android:layout_marginBottom="45dp"
+                    android:background="#228B22"
+                    android:text="延时60分"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:visibility="invisible" />
+
+
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/endButton"-->
+                <!--                    android:layout_width="161dp"-->
+                <!--                    android:layout_height="70dp"-->
+                <!--                    android:layout_below="@id/faceRecognitionButton"-->
+                <!--                    android:layout_alignRight="@id/faceRecognitionButton"-->
+                <!--                    android:layout_marginTop="25dp"-->
+                <!--                    android:text="终止"-->
+                <!--                    android:textColor="#FFFFFF"-->
+                <!--                    android:background="#228B22"-->
+                <!--                    android:textSize="30dp"-->
+                <!--                    android:visibility="invisible"/>-->
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="909dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+
+            <LinearLayout
+                android:id="@+id/latestReservationContainer"
+                android:layout_width="match_parent"
+                android:layout_height="338dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+
+                android:orientation="vertical"
+                android:padding="16dp">
+
+
+                <TextView
+                    android:id="@+id/latestReservationTime"
+                    android:layout_width="596dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="280dp"
+                    android:layout_marginTop="13dp"
+                    android:text="无"
+                    android:textColor="#292929"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/latestReservationTitle"
+                    android:layout_width="600dp"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="280dp"
+                    android:layout_marginTop="10dp"
+                    android:text="无"
+                    android:textColor="#292929"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/latestReservationMember"
+                    android:layout_width="584dp"
+                    android:layout_height="62dp"
+                    android:layout_marginLeft="280dp"
+                    android:layout_marginTop="13dp"
+                    android:text="无"
+                    android:textColor="#292929"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/latestReservationNext"
+                    android:layout_width="584dp"
+                    android:layout_height="62dp"
+                    android:layout_marginLeft="280dp"
+                    android:layout_marginTop="10dp"
+                    android:text="无"
+                    android:textColor="#292929"
+                    android:textSize="45sp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/cardNumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="#FFFFFF"
+                android:inputType="text"
+                android:textSize="16sp"
+                android:background="@android:color/transparent" />
+
+
+            <ListView
+                android:id="@+id/upcomingAppointmentsListView"
+                android:layout_width="798dp"
+                android:layout_height="414dp"
+                android:layout_marginLeft="82dp"
+                android:layout_marginTop="10dp"
+                android:focusable="false"
+                android:listSelector="@android:color/transparent"
+                android:paddingTop="20dp" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/TvLocalReservation"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:padding="16dp"/>-->
+
+            <Button
+                android:id="@+id/btnMoreSettings"
+                android:layout_width="200dp"
+                android:layout_height="64dp"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="600dp"
+                android:text="查看更多"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp"
+                android:onClick="showPopup" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
